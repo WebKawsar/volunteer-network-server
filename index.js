@@ -57,7 +57,7 @@ client.connect(err => {
 
   // volunteer choose works 
   app.get("/register/volunteer/:id", (req, res) => {
-    // console.log(req.params);
+
     eventsCollection.find({_id: ObjectId(req.params.id)})
     .toArray((error, documents) => {
 
@@ -109,6 +109,6 @@ client.connect(err => {
 });
 
 
-app.listen(port, () => {
+app.listen( process.env.PORT || port, () => {
   console.log(`listening at http://localhost:${port}`)
 })
